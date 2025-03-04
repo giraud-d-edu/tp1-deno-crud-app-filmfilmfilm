@@ -1,4 +1,4 @@
-import { ActeurDto } from "../../Acteur/dtos/acteur.dtos";
+import { Acteur } from "../../Acteur/model/acteur.model.ts";
 
 export interface FilmDto {
     titre: string;
@@ -6,5 +6,5 @@ export interface FilmDto {
     realisateur: string;
     dateDeSortie: string;
     duree: string;
-    acteurs: ActeurDto[];
+    acteurs: Acteur[];
 }
