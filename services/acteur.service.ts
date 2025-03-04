@@ -1,12 +1,11 @@
 import * as repo from '../repositories/acteur.repository.ts';
-import { Acteur } from '../models/acteur.model.ts';
 import { ActeurDto } from '../dtos/acteur.dtos.ts';
 
-export function getAllActeurs(): Acteur[] {
+export function getAllActeurs(): ActeurDto[] {
     return repo.getAllActeurs();
 }
 
-export function getActeurById(id: string): Acteur {
+export function getActeurById(id: string): ActeurDto {
     if (!id) {
         throw new Error("Invalid actor id");
     }

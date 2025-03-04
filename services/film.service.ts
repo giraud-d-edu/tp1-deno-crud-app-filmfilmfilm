@@ -1,4 +1,4 @@
-import { Film } from "../model/film.model.ts";
+import { Film } from "../models/film.model.ts";
 import { FilmDto } from "../dtos/film.dtos.ts";
 import * as repositories from "../repositories/film.repositories.ts";
 

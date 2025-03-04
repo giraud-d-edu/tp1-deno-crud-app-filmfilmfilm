@@ -2,8 +2,8 @@
 import { Application } from "jsr:@oak/oak/application";
 //@ts-ignore
 import { Router } from "jsr:@oak/oak/router";
-import * as ActeurController from "./Acteur/controllers/acteur.controller.ts"
-import * as FilmController from "./Film/controllers/film.controllers.ts"
+import * as ActeurController from "./controllers/acteur.controller.ts"
+import * as FilmController from "./controllers/film.controller.ts"
 
 const router = new Router();
 

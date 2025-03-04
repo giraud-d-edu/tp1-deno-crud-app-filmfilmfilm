@@ -1,10 +1,9 @@
-import { Film } from "../model/film.model.ts";
 import { FilmDto } from "../dtos/film.dtos.ts";
 import { film } from "./database.ts"
 //@ts-ignore
 import { ObjectId } from "https://deno.land/x/mongo@v0.31.2/mod.ts";
 
-export async function getAllFilm(): Promise<Film[]> {
+export async function getAllFilm(): Promise<FilmDto[]> {
     try {
         return film.find().toArray();
     } catch (error) {
@@ -12,7 +11,7 @@ export async function getAllFilm(): Promise<Film[]> {
     }
 }
 
-export function getFilmById(id: string): Film | undefined {
+export function getFilmById(id: string): FilmDto | undefined {
     try{
         return film.find({_id: new ObjectId(id)});
     } catch (error) {
