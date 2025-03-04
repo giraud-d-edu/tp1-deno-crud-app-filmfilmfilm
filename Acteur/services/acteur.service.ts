@@ -3,58 +3,33 @@ import { Acteur } from '../models/acteur.model.ts';
 import { ActeurDto } from '../dtos/acteur.dtos.ts';
 
 export function getAllActeurs(): Acteur[] {
-    if (!repo.getAllActeurs()) {
-        throw { status: 404, message: "No actors found" };
-    } else {
-        return repo.getAllActeurs();
-    }
+    return repo.getAllActeurs();
 }
 
-export function getActeurById(id: number): Acteur {
-    const acteur = repo.getActeurById(id);
-    if (!acteur) {
-        throw { status: 404, message: "Actor not found" };
+export function getActeurById(id: string): Acteur {
+    if (!id) {
+        throw new Error("Invalid actor id");
     }
-    return acteur;
+    return repo.getActeurById(id);
 }
 
-export function createActeur(acteurDto: ActeurDto) {
-    const allActeurs = repo.getAllActeurs().length;
-    const acteur: Acteur = {
-        id: allActeurs + 1,
-        nom : acteurDto.nom,
-        prenom : acteurDto.prenom,
-        age : acteurDto.age,
-        dateDeNaissance : acteurDto.dateDeNaissance,
-        nationalite : acteurDto.nationalite,
-    };
-    repo.addActeur(acteur);
+export function createActeur(acteurDto: ActeurDto){
+        repo.addActeur(acteurDto);
 }
 
-export function updateActeur(id: number, acteurDto: ActeurDto) {
-    const acteur = repo.getActeurById(id);
-    if (!acteur) {
-        throw { status: 404, message: "Actor not found" };
-    } else {
-        const acteurUpdate: Acteur = {
-            id: id,
-            nom: acteurDto.nom,
-            prenom: acteurDto.prenom,
-            age: acteurDto.age,
-            dateDeNaissance: acteurDto.dateDeNaissance,
-            nationalite: acteurDto.nationalite,
-        };
-        repo.updateActeur(acteurUpdate);
+export function updateActeur(id: string, acteurDto: ActeurDto) {
+    if (!id){
+        throw { status: 404, message: "Actor to update not found"};
     }
-    
+    if (Object.keys(acteurDto).length > 1) {
+        throw { status: 400, message: "Actor update given is empty"}
+    }
+    repo.updateActeur(id,acteurDto);
 }
 
-export function deleteActeur(id: number) {
-    const acteur = repo.getActeurById(id);
-    if (!acteur) {
-        throw { status: 404, message: "Actor not found" };
+export function deleteActeur(id: string) {
+    if (!id) {
+        throw { status: 404, message: "Invalid actor id" };
     }
-    else {
-        repo.deleteActeur(id);
-    }
+    repo.deleteActeur(id);
 }
