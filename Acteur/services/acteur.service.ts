@@ -21,7 +21,7 @@ export function updateActeur(id: string, acteurDto: ActeurDto) {
     if (!id){
         throw { status: 404, message: "Actor to update not found"};
     }
-    if (Object.keys(acteurDto).length > 1) {
+    if (Object.keys(acteurDto).length < 1) {
         throw { status: 400, message: "Actor update given is empty"}
     }
     repo.updateActeur(id,acteurDto);

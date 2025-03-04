@@ -1,5 +1,3 @@
-import { Acteur } from "../../Acteur/model/acteur.model";
-
 export interface Film {
     id: number;
     titre: string;
@@ -7,5 +5,5 @@ export interface Film {
     realisateur: string;
     dateDeSortie: string;
     duree: string;
-    acteurs: Acteur[];
+    acteurs: [];
 }

@@ -1,14 +1,26 @@
+//@ts-ignore
 import { Application } from "jsr:@oak/oak/application";
+//@ts-ignore
 import { Router } from "jsr:@oak/oak/router";
 import * as ActeurController from "./Acteur/controllers/acteur.controller.ts"
+import * as FilmController from "./Film/controllers/film.controllers.ts"
 
 const router = new Router();
 
-router.get('/acteurs', ActeurController.getAllActeurs)
-    .get('/acteurs/:id', ActeurController.getActeurById)
-    .post('/acteurs', ActeurController.createActeur)
-    .put('/acteurs/:id', ActeurController.updateActeur)
-    .delete('/acteurs/:id', ActeurController.deleteActeur);
+router
+.get("/films", FilmController.getAllFilms)
+.get("/films/:id", FilmController.getFilmById)
+.post("/films", FilmController.createFilm)
+.put("/films/:id", FilmController.updateFilm)
+.delete("/films/:id", FilmController.deleteFilm);
+
+router
+.get('/acteurs', ActeurController.getAllActeurs)
+.get('/acteurs/:id', ActeurController.getActeurById)
+.post('/acteurs', ActeurController.createActeur)
+.put('/acteurs/:id', ActeurController.updateActeur)
+.delete('/acteurs/:id', ActeurController.deleteActeur);
+
 const app = new Application();
 const port = 8000;
 
