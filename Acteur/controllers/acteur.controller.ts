@@ -1,5 +1,5 @@
 import * as service from '../services/acteur.service.ts';
-import { Acteur } from '../models/acteur.model.ts';
+//@ts-ignore
 import { RouterContext } from "https://deno.land/x/oak@v17.1.4/mod.ts";
 
 export const getAllActeurs = (ctx: RouterContext<'/acteurs'>) => {

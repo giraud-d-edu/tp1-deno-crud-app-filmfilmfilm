@@ -1,3 +1,4 @@
+//@ts-ignore
 import { MongoClient } from "https://deno.land/x/mongo@v0.31.2/mod.ts";
 
 const MONGODB_URI = "mongodb://localhost:27017";
