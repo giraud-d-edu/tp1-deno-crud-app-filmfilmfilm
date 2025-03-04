@@ -1,6 +1,6 @@
 import { Acteur } from '../models/acteur.model.ts';
 import { ActeurDto } from '../dtos/acteur.dtos.ts';
-import { acteurs } from './db.ts';
+import { acteursCollection as acteurs} from './db.ts';
 //@ts-ignore
 import { ObjectId } from "https://deno.land/x/mongo@v0.31.2/mod.ts";
 
