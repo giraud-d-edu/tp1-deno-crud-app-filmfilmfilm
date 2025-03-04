@@ -8,9 +8,9 @@ const router = new Router();
 router
 .get("/films", FilmController.getAllFilms)
 .get("/films/:id", FilmController.getFilmById)
-.post("/films", FilmController.createFilm)
-.put("/films/:id", FilmController.updateFilm)
-.delete("/films/:id", FilmController.deleteFilm);
+// .post("/films", FilmController.createFilm)
+// .put("/films/:id", FilmController.updateFilm)
+// .delete("/films/:id", FilmController.deleteFilm);
 
 router
 .get('/acteurs', ActeurController.getAllActeurs)
